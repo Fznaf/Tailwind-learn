@@ -11,6 +11,7 @@
     <script>
 
         tailwind.config = {
+            darkMode: 'class' ,
             theme: {
                 extend: {
                     fontFamily:{
@@ -22,13 +23,17 @@
 
     </script>
     <title>Tailwind Momentos</title>
-    <!-- <style type="text/tailwindcss">
-        * {
-            border: 1px solid red;
+    <style type="text/tailwindcss">
+        #toggle:checked ~ label div.toggle-circle {
+            @apply translate-x-3;
+            @apply bg-slate-700;
         }
-    </style> -->
+        /* * {
+            border: 1px solid red;
+        } */
+    </style>
 </head>
-<body>
+<body class="dark:bg-slate-700 dark:text-slate-100">
     <h1 class="text-6xl font-bold text-center my-10">Belajar Tailwind untuk <span class="bg-gradient-to-br from-lime-400 to-cyan-300 bg-clip-text text-transparent">Menghindar dari Kerjaan</span></h1>
 
     <section class="mb-10 bg-gradient-to-r from-purple-200 to-lime-200 via-blue-300">
@@ -57,7 +62,7 @@
         <h2 class="mb-4 text-2xl">
             Belajar Typography menggunakan TailwindCSS
         </h2>
-        <div class="mb-4 text-lg text-gray-500">
+        <div class="mb-4 text-lg">
             By Fauzan
         </div>
         <p class="mb-4 justify-items-start">
@@ -75,10 +80,81 @@
 
     </div>
 
-    <div class="mt-32 max-w-xl mx-auto h-96 bg-slate-300 bg-cover rounded-xl shadow-lg shadow-slate-600 overflow-hidden brightness-110 hover:brightness-50" style="background-image: url('./img/1.jpg');">
+    <div class="mt-32 max-w-xl mx-auto h-96 bg-slate-300 bg-cover rounded-xl shadow-lg shadow-slate-600 overflow-hidden brightness-110 flex" style="background-image: url('./img/1.jpg');">
         <!-- <div class="w-full h-full bg-blue-300 mix-blend-darken"></div> -->
+         <div class="w-[200px] h-[200px] bg-white/20 m-auto backdrop-blur-md rounded-full"></div>
+    </div>
+
+    <hr class="my-20">
+
+    <div class="flex justify-center">
+        <span class="font-montserrat text-sm  mr-2 dark:text-slate-200 ">
+            Light
+        </span>
+            <input type="checkbox" id="toggle" class="hidden"/>
+            <label for="toggle">
+                <div class="w-9 h-5 bg-gradient-to-r from-slate-500 to-slate-600 rounded-full flex items-center p-1 cursor-pointer">
+                    <div class="w-4 h-4 bg-white rounded-full toggle-circle">
+
+                    </div>
+                </div>
+
+            </label>
+            <span class="font-montserrat text-sm  ml-2 dark:text-slate-200 ">
+                Dark
+            </span>
+        
+    </div>
+
+    <button class="my-10 bg-sky-500 px-10 py-5 rounded-2xl text-white block mx-auto font-montserrat hover:bg-sky-600 active:bg-sky-700 dark:bg-slate-300 dark:hover:bg-slate-600 dark:text-slate-700 dark:hover:text-white"> Save </button>
+    
+    <div class="max-w-lg my-10 border border-slate-200 rounded-xl mx-auto p-5 shadow-md font-montserrat group hover:bg-slate-600 dark:text-white">
+        <h5 class="font-bold text-slate-600 text-lg mb-3 group-hover:text-white dark:text-white">My Card</h5>
+        <p class="
+        text-slate-500 
+        group-hover:text-white 
+        selection:bg-indigo-200 
+        selection:text-slate-600
+        first-line:uppercase
+        first-line:tracking-widest
+        first-letter:text-4xl
+        first-letter:mr-1
+        dark:text-white">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium tenetur cum qui dolor sequi unde quae ipsa aspernatur rem pariatur.
+        </p>
+    </div>
+
+    <div class=" max-w-lg border border-slate-200 rounded-xl
+    mx-auto p-5 shadow-md">
+        <form action="">
+            <label for="email" id="email">
+                <span class="block font-montserrat font-semibold mb-1 text-slate-700 after:content-['*'] after:text-pink-500 after:ml-0.5 dark:text-slate-100">E-mail</span>
+                <input type="email" placeholder="Enter your E-mail.. " class="px-3 py-2 border shadow rounded w-full block text-sm 
+                placeholder:text-slate-300 
+                dark:placeholder:text-slate-700
+                focus:outline-none focus:ring-sky-300 
+                focus:border-sky-300 
+                invalid:text-pink-500 
+                invalid:focus:ring-pink-700 
+                invalid:focus:border-pink-700
+                peer">
+                <p class="text-xs m-1 text-pink-700 invisible peer-invalid:visible">
+                    Must be a valid email address
+                </p>
+
+            </label>
+        </form>
+
     </div>
 
     <div class="h-10"></div>
+
+    <script>
+        const checkbox = document.querySelector('#toggle');
+        const html = document.querySelector('html');
+        checkbox.addEventListener('click', function(){
+            checkbox.checked ? html.classList.add('dark') : html.classList.remove('dark');
+        });
+    </script>
 </body>
 </html>
