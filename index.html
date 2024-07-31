@@ -16,6 +16,9 @@
                 extend: {
                     fontFamily:{
                         montserrat: ['Montserrat']
+                    },
+                    animation:{
+                        'spin-slow' : 'spin 12s linear infinite',
                     }
                 }
             }
@@ -127,7 +130,18 @@
     mx-auto p-5 shadow-md">
         <form action="">
             <label for="email" id="email">
-                <span class="block font-montserrat font-semibold mb-1 text-slate-700 after:content-['*'] after:text-pink-500 after:ml-0.5 dark:text-slate-100">E-mail</span>
+                <span class="block font-montserrat
+                 font-semibold
+                mb-1 
+                text-slate-700 
+                after:content-['*'] 
+                after:text-pink-500 
+                after:ml-0.5 
+                dark:text-slate-100">
+
+                E-mail
+
+                </span>
                 <input type="email" placeholder="Enter your E-mail.. " class="px-3 py-2 border shadow rounded w-full block text-sm 
                 placeholder:text-slate-300 
                 dark:placeholder:text-slate-700
@@ -146,7 +160,19 @@
 
     </div>
 
-    <div class="h-10"></div>
+    <hr class="my-20">
+
+    <div class="w-40 h-40 bg-sky-500 mx-auto rounded-lg shadow-lg hover:scale-110 hover:rotate-45 hover:translate-x-16 transition-transform"></div>
+
+    <div class="w-40 h-40 bg-pink-500 mx-auto mt-20 group">
+        <div class="w-40 h-40 bg-sky-500 mx-auto rounded-lg shadow-lg group-hover:scale-110 group-hover:rotate-180 origin-top-left transition-transform"></div>
+    </div>
+
+    <div class="w-40 h-40 bg-sky-500 mx-auto rounded-lg shadow-lg mt-20 animate-spin">
+
+    </div>
+
+    <div class="my-20"></div>
 
     <script>
         const checkbox = document.querySelector('#toggle');
